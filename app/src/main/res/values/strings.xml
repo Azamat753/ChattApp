@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">ChattApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="auth_sms">Вход и регистрация производится с помощью смс кода</string>
+    <string name="hint_number">+996 (xxx) xxx xxx</string>
+    <string name="get_code">Получить код</string>
+    <string name="auth">Регистрация</string>
+    <string name="enter_number_phone">Введите номер телефона</string>
+    <string name="we_send_sms">Мы отправили СМС код на номер</string>
+    <string name="enter_get_number">Введите полученный код, чтобы подтвредить что это ваш номер</string>
+    <string name="code_apply">Код подтвержден!</string>
+    <string name="again_send">Повторная отправка доступно через</string>
+    <string name="_00_59">00:59 сек</string>
+    <string name="hint_number_2">+996 000 000 000</string>
+    <string name="again_send_code">Отправить снова смс код</string>
+    <string name="apply">Подтвердить</string>
+    <string name="success">Успешно</string>
+    <string name="six_number_code">Введите 6-ти значный код</string>
+
+</resources>

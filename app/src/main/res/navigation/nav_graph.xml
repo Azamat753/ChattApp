@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_host"
+    app:startDestination="@id/auth_fragment">
+
+    <fragment
+        android:id="@+id/chat_fragment"
+        android:name="com.lawlett.chattapp.chat.ChatFragment"
+        android:label="fragment_chat"
+        tools:layout="@layout/fragment_chat">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/auth_fragment"
+        android:name="com.lawlett.chattapp.auth.AuthFragment"
+        android:label="fragment_auth"
+        tools:layout="@layout/fragment_chat">
+<action
+    android:id="@+id/action_auth_fragment_to_verificationFragment"
+    app:destination="@id/verification_fragment"
+
+    />
+    </fragment>
+
+    <fragment
+        android:id="@+id/verification_fragment"
+        android:name="com.lawlett.chattapp.auth.VerificationFragment"
+        android:label="fragment_verification"
+        tools:layout="@layout/fragment_verification">
+<action
+    android:id="@+id/action_verification_fragment_to_chatFragment"
+    app:destination="@id/chat_fragment"/>
+    </fragment>
+</navigation>
