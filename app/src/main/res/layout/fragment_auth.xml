@@ -46,7 +46,7 @@
         android:background="@drawable/rounded_shape_silver_12dp_f2f1f4"
         app:layout_constraintTop_toBottomOf="@+id/tv_des_info">
 
-        <EditText
+        <com.vicmikhailau.maskededittext.MaskedEditText
             android:id="@+id/et_reg_info"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -58,7 +58,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:mask="+996 (###) ### ###" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

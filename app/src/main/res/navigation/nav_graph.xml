@@ -17,21 +17,28 @@
         android:id="@+id/auth_fragment"
         android:name="com.lawlett.chattapp.auth.AuthFragment"
         android:label="fragment_auth"
+        app:launchSingleTop="true"
         tools:layout="@layout/fragment_chat">
 <action
     android:id="@+id/action_auth_fragment_to_verificationFragment"
     app:destination="@id/verification_fragment"
 
     />
+        <action
+            android:id="@+id/action_auth_fragment_to_chat_fragment"
+            app:destination="@id/chat_fragment" />
     </fragment>
 
     <fragment
         android:id="@+id/verification_fragment"
         android:name="com.lawlett.chattapp.auth.VerificationFragment"
         android:label="fragment_verification"
+        app:launchSingleTop="true"
         tools:layout="@layout/fragment_verification">
 <action
     android:id="@+id/action_verification_fragment_to_chatFragment"
     app:destination="@id/chat_fragment"/>
     </fragment>
+
+
 </navigation>

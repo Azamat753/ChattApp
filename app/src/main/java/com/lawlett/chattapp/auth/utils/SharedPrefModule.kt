@@ -40,13 +40,13 @@ class SharedPrefModule(context: Context) {
 
     inner class FirstTimeModule {
 
-        fun isFirstTime(): Boolean {
-            return sharedPref.getBoolean(FIRST, true)
+        fun isShown(): Boolean {
+            return sharedPref.getBoolean(FIRST, false)
         }
 
-        fun saveFirstTime(bool: Boolean) {
+        fun saveShown() {
             val editor = sharedPref.edit()
-            editor.putBoolean(FIRST, bool)
+            editor.putBoolean(FIRST, true)
             editor.apply()
         }
     }

@@ -140,7 +140,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginEnd="24dp"
             android:text="@string/_00_59"
-            android:textColor="@color/colorAccent_002147"
+            android:textColor="@color/chat_background"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tv_again_code"

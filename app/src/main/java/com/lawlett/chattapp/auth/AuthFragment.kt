@@ -8,6 +8,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.lawlett.chattapp.R
+import com.lawlett.chattapp.auth.utils.SharedPrefModule
 import com.lawlett.chattapp.auth.utils.toast
 import kotlinx.android.synthetic.main.fragment_auth.*
 
@@ -15,10 +16,18 @@ class AuthFragment : Fragment(R.layout.fragment_auth), TextWatcher {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        checkedShow()
         et_reg_info.addTextChangedListener(this)
         listener()
     }
-
+    private fun checkedShow() {
+        var isShown: Boolean = SharedPrefModule(requireContext()).FirstTimeModule().isShown()
+        if (isShown){
+            findNavController().navigate(
+                R.id.action_auth_fragment_to_chat_fragment
+            )
+        }
+    }
     private fun listener() {
         btn_reg_info.setOnClickListener {
             if (et_reg_info.text.toString().isEmpty()) {
@@ -34,7 +43,7 @@ class AuthFragment : Fragment(R.layout.fragment_auth), TextWatcher {
     }
 
     override fun afterTextChanged(p0: Editable?) {
-        if (et_reg_info.text.toString().count() == 13) {
+        if (et_reg_info.text.toString().count() == 18) {
             btn_reg_info.isClickable = true
             btn_reg_info.setBackgroundResource(R.drawable.rounded_shape_green_12dp_8cc341)
         } else {

@@ -5,6 +5,8 @@
     <color name="colorAccent">#03DAC5</color>
 
     <color name="color_gray_7B818C">#7B818C</color>
-    <color name="colorAccent_002147">#002147</color>
+    <color name="chat_background">#1B2432</color>
+    <color name="toolbar_color">#151F2F</color>
+    <color name="bottom_icon">#17B8FF</color>
 
 </resources>

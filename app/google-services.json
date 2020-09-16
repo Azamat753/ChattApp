@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "243798016693-f0rhp8bnurvg2fi0s8ihe2celpn4uopg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lawlett.chattapp",
+            "certificate_hash": "3f1b56597cd90203b582d9cb07e3416f229fcb69"
+          }
+        },
+        {
           "client_id": "243798016693-qeirkf45ut0707q2gkupd6gcbhn6us26.apps.googleusercontent.com",
           "client_type": 3
         }

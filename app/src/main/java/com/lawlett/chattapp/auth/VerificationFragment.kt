@@ -6,6 +6,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -29,13 +30,18 @@ class VerificationFragment : Fragment(R.layout.fragment_verification), TextWatch
     private var isCodeSent = false
     var code: String = ""
     var phoneNumber: String = ""
+    lateinit var sendAgainTv: TextView
+    lateinit var timerTextViews: TextView
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        sendAgainTv = view.findViewById(R.id.tv_send_again)
+        timerTextViews = view.findViewById(R.id.timerTextView)
         init()
     }
 
     private fun init() {
+
         phoneNumber = arguments?.getString("PHONE_NUMBER").toString()
         requestOTP()
         setOnClickAction()
@@ -105,6 +111,7 @@ class VerificationFragment : Fragment(R.layout.fragment_verification), TextWatch
 
                     SharedPrefModule(this.requireContext()).TokenModule()
                         .saveToken(task.result?.user?.uid)
+                    SharedPrefModule(this.requireContext()).FirstTimeModule().saveShown()
                     findNavController().navigate(
                         R.id.action_verification_fragment_to_chatFragment
                     )
@@ -120,16 +127,16 @@ class VerificationFragment : Fragment(R.layout.fragment_verification), TextWatch
     private fun timerStart() {
         object : CountDownTimer(60000, 1000) {
             override fun onTick(millis: Long) {
-                tv_send_again.isClickable = false
+                sendAgainTv?.isClickable = false
                 var seconds = (millis / 1000).toInt()
-                val minutes = seconds / 60
+                val minutes = seconds / 620
                 seconds %= 60
-                timerTextView.text = "0" + String.format("%d:%02d", minutes, seconds) + " сек"
+                timerTextViews.text = "0" + String.format("%d:%02d", minutes, seconds) + " сек"
             }
 
             override fun onFinish() {
-                timerTextView.text = "0 секунд"
-                tv_send_again.isClickable = true
+                timerTextViews.text = "0 секунд"
+                sendAgainTv?.isClickable = true
             }
         }.start()
     }
@@ -146,11 +153,10 @@ class VerificationFragment : Fragment(R.layout.fragment_verification), TextWatch
             btnSend.setBackgroundResource(R.drawable.rounded_shape_silver_12dp_7b818c)
         }
     }
+
     override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-        TODO("Not yet implemented")
     }
 
     override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-        TODO("Not yet implemented")
     }
 }
